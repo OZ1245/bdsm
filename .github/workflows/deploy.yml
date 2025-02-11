@@ -17,8 +17,11 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          source: "."
-          target: "/home/bnu/bdsm/www"
+          source: "public/*"
+          target: "/home/${{ secrets.USERNAME }}/bdsm/www/public"
+          strip_components: 2
+          rm: true
+          overwrite: true
 
       - name: Executing remote command
         uses: appleboy/ssh-action@master
