@@ -18,7 +18,7 @@ jobs:
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
           source: "."
-          target: "/home/bnu/bdsm/www/html"
+          target: "/home/bnu/bdsm/www"
 
       - name: Executing remote command
         uses: appleboy/ssh-action@master
