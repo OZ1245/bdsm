@@ -71,7 +71,7 @@ services:
   postgres:
     image: postgres:16
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "${DB_PORT}:5432"
     environment:
       - POSTGRES_DB=${DB_DATABASE}
       - POSTGRES_USER=${DB_USERNAME}
@@ -85,6 +85,8 @@ services:
     image: redis:alpine
     networks:
       - laravel-development
+    ports:
+      - "${REDIS_PORT}:6379"
 
 networks:
   laravel-development:
