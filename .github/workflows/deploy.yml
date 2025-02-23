@@ -19,7 +19,7 @@ jobs:
           KEY: ${{ secrets.SSHKEY }}
           source: "public/*"
           target: "/home/${{ secrets.USERNAME }}/bdsm/www/public"
-          strip_components: 2
+          strip_components: 1
           rm: true
           overwrite: true
 
