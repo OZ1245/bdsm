@@ -17,8 +17,8 @@ jobs:
           USERNAME: ${{ secrets.USERNAME }}
           PORT: ${{ secrets.PORT }}
           KEY: ${{ secrets.SSHKEY }}
-          source: "public/*"
-          target: "/home/${{ secrets.USERNAME }}/bdsm/public"
+          source: "."
+          target: "/home/${{ secrets.USERNAME }}/bdsm"
           strip_components: 1
           rm: true
           overwrite: true
