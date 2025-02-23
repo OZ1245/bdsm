@@ -20,7 +20,7 @@ jobs:
           source: "."
           target: "/home/${{ secrets.USERNAME }}/bdsm"
           strip_components: 1
-          rm: true
+#          rm: true
           overwrite: true
 
       - name: Executing remote command
