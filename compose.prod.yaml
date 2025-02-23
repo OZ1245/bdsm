@@ -12,8 +12,8 @@ services:
       # The 'php-fpm' service mounts the same volume without ':ro' to allow write operations.
       # -----------------------------------------------------------
       - laravel-storage-production:/var/www/storage:ro
-    networks:
-      - laravel-production
+#    networks:
+#      - laravel-production
     ports:
       # Map port 80 inside the container to the port specified by 'NGINX_PORT' on the host machine.
       # -----------------------------------------------------------
@@ -36,8 +36,8 @@ services:
       - laravel-storage-production:/var/www/storage  # Mount the storage volume
     env_file:
       - .env
-    networks:
-      - laravel-production
+#    networks:
+#      - laravel-production
     healthcheck:
       test: ["CMD-SHELL", "php-fpm-healthcheck || exit 1"]
       interval: 10s
@@ -62,8 +62,8 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-secret}
     volumes:
       - postgres-data-production:/var/lib/postgresql/data
-    networks:
-      - laravel-production
+#    networks:
+#      - laravel-production
     # Health check for PostgreSQL
     # -----------------------------------------------------------
     # Health checks allow Docker to determine if a service is operational.
@@ -79,8 +79,8 @@ services:
   redis:
     image: redis:alpine
     restart: unless-stopped  # Automatically restart unless the service is explicitly stopped
-    networks:
-      - laravel-production
+#    networks:
+#      - laravel-production
     # Health check for Redis
     # -----------------------------------------------------------
     # Checks if Redis is responding to the 'PING' command.
@@ -98,7 +98,8 @@ networks:
   # This custom network allows all services within it to communicate using their service names as hostnames.
   # For example, 'php-fpm' can connect to 'postgres' by using 'postgres' as the hostname.
   # -----------------------------------------------------------
-  laravel-production:
+#  laravel-production:
+  dev:
 
 volumes:
   postgres-data-production:
